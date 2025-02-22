@@ -1,12 +1,9 @@
-/*===== GOOGLE FONTS =====*/
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
-/*===== VARIABLES CSS =====*/
+
 :root {
   --header-height: 3rem;
   --font-semi: 600;
-  /*===== Colors =====*/
-  /*Purple 260 - Red 355 - Blue 224 - Pink 340*/
-  /* HSL color mode */
   --hue-color: 224;
   --first-color: hsl(var(--hue-color), 89%, 60%);
   --second-color: hsl(var(--hue-color), 56%, 12%);
@@ -415,36 +412,6 @@ background: linear-gradient(to right, #A7CFDF 0%, #23538A 100%);
   transform: scale(1.1);
 }
 
-/* Certificate Section */
-
-.certificates {
-  background-color: rgb(71, 76, 142);
-  padding: 90px 0px;
-}
-
-.certificates .box-container{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 2rem 0;
-}
-.certificates .box-container .box {
-  height: 20rem;
-  width: 30rem;
-  border-radius: 1rem;
-  margin: 5rem;
-  overflow: hidden;
-  cursor: pointer;
-}
-.certificates .box-container .box img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-.certificates .box-container .box:hover img {
-  transform: scale(1.2);
-}
 
 /* ===== CONTACT =====*/
 .contact__input {
@@ -471,36 +438,7 @@ background: linear-gradient(to right, #A7CFDF 0%, #23538A 100%);
 
 
 
-/* == responsive == */
-@media screen and (max-width: 900px) {
-  .footer .container {
-    flex-direction: column;
-  }
-}
-@media (max-width: 767px) {
-  .footer .content {
-    display: flex;
-    flex-direction: column;
-    font-size: 14px;
-  }
 
-  .footer {
-    position: unset;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  .footer .content,
-  .footer {
-    font-size: 14px;
-  }
-}
-
-@media (orientation: landscape) and (max-height: 500px) {
-  .footer {
-    position: unset;
-  }
-}
 
 
 /* -----------------------KEYFRAMES---------------------------- */
