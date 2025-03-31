@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vikash Maurya - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            color: #333;
+        }
+
+        .resume-container {
+            max-width: 850px;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .header {
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .profile-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #eee;
+            flex-shrink: 0;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .name-title {
+            margin-left: 30px;
+            flex-grow: 1;
+        }
+
+        .name-title h1 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        .contact-links {
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #555;
+            text-decoration: none;
+            word-break: break-word;
+        }
+
+        .contact-link:hover {
+            color: #333;
+        }
+
+        .icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #333;
+            color: white;
+            border-radius: 3px;
+            font-size: 10px;
+            padding: 3px;
+            flex-shrink: 0;
+        }
+
+        .main-content {
+            display: flex;
+            padding: 20px;
+        }
+
+        .left-column {
+            flex: 1;
+            padding-right: 20px;
+            border-right: 1px solid #eee;
+        }
+
+        .right-column {
+            flex: 1.5;
+            padding-left: 20px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .education-item, .skill-item, .strength-item, .language-item, .certificate-item {
+            margin-bottom: 15px;
+        }
+
+        .education-item h3, .certificate-item h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .education-item p, .certificate-item p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 3px;
+        }
+
+        .date {
+            font-size: 13px;
+            color: #888;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .skill-tag {
+            background-color: #eee;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 13px;
+            color: #555;
+            transition: all 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            background-color: #ddd;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .strength-item, .language-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .strength-item:before, .language-item:before {
+            content: "•";
+            margin-right: 8px;
+            color: #555;
+        }
+
+        .summary {
+            line-height: 1.5;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .internship-item, .project-item {
+            margin-bottom: 25px;
+        }
+
+        .internship-title, .project-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .internship-subtitle {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .project-features, .internship-features {
+            margin-top: 10px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .feature-item:before {
+            content: "•";
+            margin-right: 8px;
+            color: #555;
+            flex-shrink: 0;
+        }
+
+        .action-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        .action-button {
+            padding: 10px 15px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .action-button:hover {
+            background-color: #444;
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 99;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 5px;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            background-color: #f5f5f5;
+        }
+
+        .toggle-nav {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 5px 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 100;
+            display: none;
+        }
+
+        .copied-message {
+            margin-left: 10px;
+            color: green;
+            font-size: 12px;
+            animation: fadeOut 2s forwards;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            70% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        /* Responsive styles */
+        @media screen and (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .left-column {
+                padding-right: 0;
+                border-right: none;
+                border-bottom: 1px solid #eee;
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+            }
+            
+            .right-column {
+                padding-left: 0;
+            }
+            
+            .toggle-nav {
+                display: none; /* Hide navigation on mobile */
+            }
+            
+            .action-buttons {
+                bottom: 10px;
+                right: 10px;
+            }
+            
+            .action-button {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+            
+            .header {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            
+            .name-title {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+            
+            .contact-links {
+                justify-content: center;
+            }
+            
+            .contact-link {
+                font-size: 13px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .resume-container {
+                border-radius: 5px;
+            }
+            
+            .header {
+                padding: 15px;
+            }
+            
+            .profile-img {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .name-title h1 {
+                font-size: 24px;
+            }
+            
+            .main-content {
+                padding: 15px;
+            }
+            
+            .section-title {
+                font-size: 16px;
+            }
+            
+            .education-item h3, 
+            .certificate-item h3, 
+            .internship-title, 
+            .project-title {
+                font-size: 14px;
+            }
+            
+            .skill-tag {
+                font-size: 12px;
+                padding: 4px 8px;
+            }
+            
+            .contact-links {
+                gap: 10px;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .action-buttons,
+            .toggle-nav,
+            .nav-menu {
+                display: none !important;
+            }
+            
+            .resume-container {
+                box-shadow: none;
+                max-width: 100%;
+                width: 100%;
+            }
+            
+            body {
+                padding: 0;
+                background-color: white;
+            }
+            
+            .main-content {
+                break-inside: avoid;
+            }
+            
+            .section {
+                break-inside: avoid;
+            }
+            
+            .skill-tag:hover {
+                transform: none;
+                box-shadow: none;
+            }
+            
+            @page {
+                margin: 0.5cm;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container" id="resume">
+        <div class="header">
+            <div class="profile-img">
+                <img src="./photo/v.png" alt="Vikash Maurya" id="profile-image">
+            </div>
+            <div class="name-title">
+                <h1>Vikash Maurya</h1>
+                <div class="contact-links">
+                    <a href="tel:8081692062" class="contact-link">
+                        <div class="icon">📞</div>
+                        <span class="contact-text">8081692062</span>
+                    </a>
+                    <a href="mailto:vm845607@gmail.com" class="contact-link">
+                        <div class="icon">✉️</div>
+                        <span class="contact-text">vm845607@gmail.com</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/vikash-kumar-maurya-93167223/" class="contact-link">
+                        <div class="icon">in</div>
+                        <span class="contact-text">LinkedIn Profile</span>
+                    </a>
+                    <a href="https://github.com/Vikash2062" class="contact-link">
+                        <div class="icon">GH</div>
+                        <span class="contact-text">GitHub Profile</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="left-column">
+                <div class="section">
+                    <h2 class="section-title">Education</h2>
+                    <div class="education-item">
+                        <h3>Master of Computer Application, Golgotas University, Greater Noida</h3>
+                        <p class="date">2024 - 2026</p>
+                    </div>
+                    <div class="education-item">
+                        <h3>Bachelor of Computer Application, MGKVP University</h3>
+                        <p class="date">2021 - 2024</p>
+                    </div>
+                    <div class="education-item">
+                        <h3>Senior Secondary Education
+                            Tilakdhari I C Bijhwal </h3>
+                        <p class="date">2019 - 2021</p>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">Skills</h2>
+                    <div class="skills-container">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">DSA</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">Tailwind</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Next.js</span>
+                        <span class="skill-tag">C-lang</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">MS Word</span>
+                        <span class="skill-tag">Tally</span>
+                        <span class="skill-tag">PowerPoint</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">Strengths</h2>
+                    <div class="strength-item">Proficient in Web Development</div>
+                    <div class="strength-item">Strong Analytical and Problem Solving Skills</div>
+                    <div class="strength-item">Excellent Communication and Collaboration</div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">Language</h2>
+                    <div class="language-item">Hindi</div>
+                    <div class="language-item">English</div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">Certificates</h2>
+                    <div class="certificate-item">
+                        <h3>Full-Stack Development</h3>
+                    </div>
+                    <div class="certificate-item">
+                        <h3>SYSTEM DESIGN AND WORKSHOP</h3>
+                    </div>
+                    <div class="certificate-item">
+                        <h3>Java Programming for Beginners</h3>
+                    </div>
+                    <div class="certificate-item">
+                        <h3>Introduction to the Fundamentals of Databases</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-column">
+                <div class="section">
+                    <h2 class="section-title">Summary</h2>
+                    <p class="summary">
+                        I am student of MCA, and I'm working on my Full Stack Web Development MERN Stack (Mongo,Express,React, Node). And I'm Computer Science student looking forward to work with a professional work driven environment where I can utilize my skills and knowledge and become a part of organization's growth. Now I'm working with Development project.
+                    </p>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">Internship</h2>
+                    <div class="internship-item">
+                        <h3 class="internship-title">Web Development at CODSOFT(Oct 2024 - Nov 2024)</h3>
+                        <div class="internship-features">
+                            <div class="feature-item">Developed and maintained responsive web applications using HTML, CSS, JavaScript, and React.</div>
+                            <div class="feature-item">Integrated backend services using Node.js and MongoDB to enhance application functionality.</div>
+                            <div class="feature-item">Collaborated with a team to implement dynamic UI/UX features, improving user engagement.</div>
+                            <div class="feature-item">Optimized website performance, ensuring faster load times and better user experience.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">Projects</h2>
+                    <div class="project-item">
+                        <h3 class="project-title">Contact Management System</h3>
+                        <div class="project-features">
+                            <div class="feature-item">Developed a web-based application to store and manage contact information securely.</div>
+                            <div class="feature-item">Enabled CRUD operations for adding, updating, deleting, and searching contacts.</div>
+                            <div class="feature-item">Integrated Spring Security for user authentication and role-based access control.</div>
+                            <div class="feature-item">Technologies used: Spring Boot, Thymeleaf, MySQL, CSS, Bootstrap, JavaScript, Tailwind.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-item">
+                        <h3 class="project-title">Gym E-Commerce Application</h3>
+                        <div class="project-features">
+                            <div class="feature-item">Built a full-stack application to sell gym products and training programs using Spring Boot, Thymeleaf, and Bootstrap.</div>
+                            <div class="feature-item">Integrated Spring Security for user authentication and profile management.</div>
+                            <div class="feature-item">Designed dynamic pages for product listings, user reviews, and profile updates.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-item">
+                        <h3 class="project-title">Job Portal (Node.js & MongoDB)</h3>
+                        <div class="project-features">
+                            <div class="feature-item">Developed a full-stack job portal using Node.js, Express.js, and MongoDB for backend operations.</div>
+                            <div class="feature-item">Designed and implemented RESTful APIs to handle user authentication, job postings, and applications.</div>
+                            <div class="feature-item">Integrated JWT authentication and role-based access control for secure user management.</div>
+                            <div class="feature-item">Built an intuitive frontend using React.js (or any other framework you used), featuring customized database queries and filtering for better job searches.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="action-buttons">
+        <button class="action-button" id="downloadPDF">Download PDF</button>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to handle skill tags hover effect
+            const skillTags = document.querySelectorAll('.skill-tag');
+            
+            skillTags.forEach(tag => {
+                tag.addEventListener('mouseover', function() {
+                    this.style.cursor = 'pointer';
+                });
+                
+                tag.addEventListener('click', function() {
+                    // Display skill level or description
+                    alert(`Skill: ${this.innerText} - Proficient`);
+                });
+            });
+            
+            // Function to handle image error
+            const profileImage = document.getElementById('profile-image');
+            
+            profileImage.onerror = function() {
+                this.src = 'v.png';
+            };
+            
+            // Print functionality
+            document.getElementById('printResume').addEventListener('click', function() {
+                window.print();
+            });
+            
+            // Download as PDF functionality
+            document.getElementById('downloadPDF').addEventListener('click', function() {
+                // Alert user about using system print dialog to save as PDF
+                alert('To download as PDF, use the Print button and select "Save as PDF" in your browser\'s print dialog.');
+                
+                // Alternative method using html2pdf.js library
+                // If you want to include the library, uncomment and use this code
+                /*
+                if (typeof html2pdf !== 'undefined') {
+                    const element = document.getElementById('resume');
+                    const opt = {
+                        margin: 10,
+                        filename: 'vikash_maurya_resume.pdf',
+                        image: { type: 'jpeg', quality: 0.98 },
+                        html2canvas: { scale: 2 },
+                        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                    };
+                    
+                    html2pdf().set(opt).from(element).save();
+                } else {
+                    // Fallback to print dialog
+                    window.print();
+                }
+                */
+                
+                // For a more robust solution, we can use browser's print to PDF capability
+                window.print();
+            });
+            
+            // Create navigation menu
+            function createNavigation() {
+                const navMenu = document.getElementById('navMenu');
+                const sections = document.querySelectorAll('.section-title');
+                
+                // Clear existing links
+                navMenu.innerHTML = '';
+                
+                // Add navigation title
+                const navTitle = document.createElement('div');
+                navTitle.textContent = 'Resume Sections';
+                navTitle.style.fontWeight = 'bold';
+                navTitle.style.marginBottom = '10px';
+                navTitle.style.borderBottom = '1px solid #eee';
+                navTitle.style.paddingBottom = '5px';
+                
+                navMenu.appendChild(navTitle);
+                
+                // Add section links
+                sections.forEach(section => {
+                    const link = document.createElement('a');
+                    link.textContent = section.textContent;
+                    link.className = 'nav-link';
+                    
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        section.scrollIntoView({ behavior: 'smooth' });
+                        
+                        // Highlight section briefly
+                        const originalBackground = section.style.backgroundColor;
+                        section.style.backgroundColor = '#fff8dc';
+                        section.style.transition = 'background-color 1s';
+                        
+                        setTimeout(() => {
+                            section.style.backgroundColor = originalBackground;
+                        }, 1500);
+                        
+                        // Hide menu on mobile
+                        if (window.innerWidth <= 768) {
+                            navMenu.style.display = 'none';
+                        }
+                    });
+                    
+                    navMenu.appendChild(link);
+                });
+            }
+            
+            // Toggle navigation menu
+            document.getElementById('toggleNav').addEventListener('click', function() {
+                const navMenu = document.getElementById('navMenu');
+                
+                if (navMenu.style.display === 'none' || navMenu.style.display === '') {
+                    createNavigation();
+                    navMenu.style.display = 'block';
+                } else {
+                    navMenu.style.display = 'none';
+                }
+            });
+            
+            // Show navigation toggle on larger screens
+            function updateNavVisibility() {
+                const toggleNav = document.getElementById('toggleNav');
+                
+                if (window.innerWidth > 768) {
+                    toggleNav.style.display = 'block';
+                } else {
+                    toggleNav.style.display = 'none';
+                    document.getElementById('navMenu').style.display = 'none';
+                }
+            }
+            
+            // Add contact info click-to-copy functionality
+            const contactLinks = document.querySelectorAll('.contact-link');
+            
+            contactLinks.forEach(link => {
+                if (!link.href.startsWith('mailto:') && !link.href.startsWith('tel:')) {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        // Get text to copy (either from span or the link text)
+                        const textElement = this.querySelector('.contact-text');
+                        const textToCopy = textElement ? textElement.textContent : this.textContent.trim();
+                        
+                        // Copy to clipboard
+                        navigator.clipboard.writeText(link.href).then(() => {
+                            // Check if message already exists
+                            const existingMessage = this.querySelector('.copied-message');
+                            if (existingMessage) {
+                                existingMessage.remove();
+                            }
+                            
+                            // Show temporary message
+                            const message = document.createElement('span');
+                            message.textContent = 'Copied!';
+                            message.className = 'copied-message';
+                            
+                            this.appendChild(message);
+                            
+                            // Remove message after animation completes
+                            setTimeout(() => {
+                                message.remove();
+                            }, 2000);
+                        });
+                    });
+                }
+            });
+            
+            // Initialize navigation visibility
+            updateNavVisibility();
+            
+            // Update on resize
+            window.addEventListener('resize', updateNavVisibility);
+            
+            // Add JavaScript for downloadable resume as PDF
+            function setupDownloadableResume() {
+                // Check if we can add the html2pdf.js library dynamically
+                // For this example, we'll just use the browser's print to PDF capability
+                
+                // Create a downloadable HTML version option
+                const downloadHTMLButton = document.createElement('button');
+                downloadHTMLButton.textContent = 'Download HTML';
+                downloadHTMLButton.className = 'action-button';
+                downloadHTMLButton.style.marginTop = '10px';
+                
+                downloadHTMLButton.addEventListener('click', function() {
+                    // Create a blob with the HTML content
+                    const htmlContent = document.documentElement.outerHTML;
+                    const blob = new Blob([htmlContent], { type: 'text/html' });
+                    const url = URL.createObjectURL(blob);
+                    
+                    // Create download link
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'vikash_maurya_resume.html';
+                    document.body.appendChild(a);
+                    a.click();
+                    
+                    // Clean up
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                });
+                
+                // Add to action buttons
+                document.querySelector('.action-buttons').appendChild(downloadHTMLButton);
+            }
+            
+            // Setup downloadable resume
+            setupDownloadableResume();
+        });
+    </script>
+</body>
+</html>
